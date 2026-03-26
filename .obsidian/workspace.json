@@ -29,7 +29,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mantenimiento.md",
+                "file": "2026/Mantenimiento.md",
                 "mode": "preview",
                 "source": false
               },
@@ -95,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "44082f89637b625b",
@@ -227,22 +226,22 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "2f499c67a339b5d1",
+  "active": "302109363b7b4427",
   "lastOpenFiles": [
-    "Pasted image 20260326152023.png",
-    "Pasted image 20260326143813.png",
-    "Pasted image 20260326143643.png",
-    "Pasted image 20260326133316.png",
+    "2026/Images/Pasted image 20260326152023.png",
+    "2026/Images/Pasted image 20260326143813.png",
+    "2026/Images/Pasted image 20260326143643.png",
+    "2026/Images/Pasted image 20260326133316.png",
     "2026/Organización industrial.md",
-    "Mantenimiento.md",
+    "2026/Mantenimiento.md",
     "Index.md",
     "2026/Redes neuronales.md",
     "2026/Interrupciones.md",
     "2026/Sistemas embebidos.md",
     "2026/Introducción - Productividad y estrategia.md",
-    "Pasted image 20260326114236.png",
-    "Pasted image 20260326113629.png",
-    "Pasted image 20260326112817.png",
+    "2026/Images/Pasted image 20260326114236.png",
+    "2026/Images/Pasted image 20260326113629.png",
+    "2026/Images/Pasted image 20260326112817.png",
     "2026/Images/Pasted image 20260326111759.png",
     "Pasted image 20260326102656.png",
     "2025/Cap1 - Final EMAG.md",
