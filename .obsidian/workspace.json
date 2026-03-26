@@ -1,0 +1,251 @@
+{
+  "main": {
+    "id": "9cfe1c88a147e5c0",
+    "type": "split",
+    "children": [
+      {
+        "id": "439eca2b17fb1ce3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5c88c975f8ae47e7",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Index.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Index"
+            }
+          },
+          {
+            "id": "2f499c67a339b5d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mantenimiento.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Mantenimiento"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fa0254c9917ebcb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "2057af9c06ecee99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "302109363b7b4427",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "17b660c64e4319ac",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "c752c1f7ee314bc2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "44082f89637b625b",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ff385a4b72c9bbb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ca67db85dd6f76e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2026/Introducción - Productividad y estrategia.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de Introducción - Productividad y estrategia"
+            }
+          },
+          {
+            "id": "1842ff8b9a72be45",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes"
+            }
+          },
+          {
+            "id": "0d840d8f31d1b92a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "2335157e661eca7b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "4371b2f6747d7a91",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema"
+            }
+          },
+          {
+            "id": "92bd046d4380a770",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "40a1d43c7657f988",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b4bec8081d437d8",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vista gráfica"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-matrix:Obsidian Matrix": false,
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "2f499c67a339b5d1",
+  "lastOpenFiles": [
+    "Pasted image 20260326152023.png",
+    "Pasted image 20260326143813.png",
+    "Pasted image 20260326143643.png",
+    "Pasted image 20260326133316.png",
+    "2026/Organización industrial.md",
+    "Mantenimiento.md",
+    "Index.md",
+    "2026/Redes neuronales.md",
+    "2026/Interrupciones.md",
+    "2026/Sistemas embebidos.md",
+    "2026/Introducción - Productividad y estrategia.md",
+    "Pasted image 20260326114236.png",
+    "Pasted image 20260326113629.png",
+    "Pasted image 20260326112817.png",
+    "2026/Images/Pasted image 20260326111759.png",
+    "Pasted image 20260326102656.png",
+    "2025/Cap1 - Final EMAG.md",
+    "2025/Electromagnetismo.md"
+  ]
+}
