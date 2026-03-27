@@ -24,17 +24,17 @@
             }
           },
           {
-            "id": "2f499c67a339b5d1",
+            "id": "cf66ea56080ee74e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026/Mantenimiento.md",
-                "mode": "preview",
+                "file": "2026/Teoría de la información.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mantenimiento"
+              "title": "Teoría de la información"
             }
           }
         ],
@@ -228,22 +228,27 @@
   },
   "active": "302109363b7b4427",
   "lastOpenFiles": [
-    "2026/Images/Pasted image 20260326152023.png",
-    "2026/Images/Pasted image 20260326143813.png",
-    "2026/Images/Pasted image 20260326143643.png",
-    "2026/Images/Pasted image 20260326133316.png",
-    "2026/Organización industrial.md",
-    "2026/Mantenimiento.md",
+    "2026/Images/Pasted image 20260327120114.png",
+    "2026/Images/Pasted image 20260327115804.png",
+    "2026/Images/Pasted image 20260327115749.png",
+    "2026/Images/Pasted image 20260327114754.png",
+    "Length.md",
+    "2026/Teoría de la información.md",
+    "2026/Images/Pasted image 20260327111634.png",
+    "2026/Images/Pasted image 20260327111132.png",
+    "2026/Images/Pasted image 20260327111117.png",
+    "2026/Images/Pasted image 20260327110207.png",
+    "2026/Images/Pasted image 20260327101613.png",
+    "2026/Images/Pasted image 20260327094248.png",
+    "2026/Images/Pasted image 20260327094035.png",
+    "2026/Transmisión de la información.md",
     "Index.md",
+    "2026/Mantenimiento.md",
+    "2026/Organización industrial.md",
     "2026/Redes neuronales.md",
     "2026/Interrupciones.md",
     "2026/Sistemas embebidos.md",
     "2026/Introducción - Productividad y estrategia.md",
-    "2026/Images/Pasted image 20260326114236.png",
-    "2026/Images/Pasted image 20260326113629.png",
-    "2026/Images/Pasted image 20260326112817.png",
-    "2026/Images/Pasted image 20260326111759.png",
-    "Pasted image 20260326102656.png",
     "2025/Cap1 - Final EMAG.md",
     "2025/Electromagnetismo.md"
   ]

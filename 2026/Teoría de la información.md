@@ -125,7 +125,7 @@ Se denominan códigos instantáneos cuando es posible decodificar una palabra si
 #### Inecuación de Kraft
 Si se quiere obtener códigos instantáneos para una fuente de $q$ símbolos con un alfabeto de $r$ símbolos código, podremos asignar $n_{1}$ símbolos de longitud $1$ con $n_{1}\leq r$.
 
-De esta forma, quedan $r-n_{1}$ símbolos para usar como prefijos del resto de los códigos, de moso que podremos asignar un máximo de $n_{2}=(r-n_{1})\cdot r$ códigos de longitud $2$, es decir: $n_{2}\leq r^{2}-n_{1}r$
+De esta forma, quedan $r-n_{1}$ símbolos para usar como prefijos del resto de los códigos, de modo que podremos asignar un máximo de $n_{2}=(r-n_{1})\cdot r$ códigos de longitud $2$, es decir: $n_{2}\leq r^{2}-n_{1}r$
 
 Si generalizamos la inecuación de Kraft:
 $$
@@ -143,7 +143,7 @@ Además, siempre se cumple que:
 $$
 H(S)\leq \log(r\cdot L) \to H_{r}(S)\leq L
 $$
-A partir de esto, y otras condciones, se deduce el primer teorema de Shannon:
+A partir de esto, y otras condiciones, se deduce el primer teorema de Shannon:
 $$
 H_{r}(S)\leq L \leq 1+H_{r}(S)
 $$
@@ -173,3 +173,139 @@ Los pasos para construirlo son:
 
 **Observación:** Es posible que debido a distintas asignaciones u ordenamientos se obtengan distintos códigos: *Todos deben tener igual longitud media*.
 
+En un código instantáneo compacto, se debe cumplir:
+- Los símbolos de mayor probabilidad de ocurrencia tienen asignados códigos de menor longitud. *Si esto no se cumple, el código no será compacto.*
+- Al menos los 2 símbolos de menor frecuencia poseen palabras de igual longitud.
+
+Como ningún código es prefijo de otro, las 2 palabras de mayor longitud no pueden tener como prefijo a ninguna otra palabra de modo que puedo acortar la longitud del símbolo mas largo.
+
+Si $L_{q-1}< L_{q}$, puedo eliminar el código excedente llevando $L_{q-1}=L_{q}$.
+
+*El algoritmo de Huffman hace que los 2 símbolos de menor probabilidad de error tengan igual longitud diferenciándose sólo en el último elemento de código.*
+
+El método es aplicable a códigos con alfabeto no binario. Si al aplicar el método no se obtiene una fuente de $r$ símbolos, implica que es necesario agrear símbolos falsos al iniciar el método.
+
+Es posible  conseguir distintas codificaciones según las asignaciones hechas, aunque todas las posibilidades deberán tener igual longitud media. 
+
+Esto lleva a casos donde la relación entre la longitud de las palabras más frecuentes y las menos frecuentes es distinta. Cuanto mayor sea su diferencia -> Mayor varianza. Al transmitir datos, esto no es algo práctico, ya que mandar distintos símbolos requiere de distinta cantidad de datos que se puedan transmitir, y se llega a la necesidad de utilizar un buffer de datos. Si la varianza es mínima, se optimiza la utilidad del buffer.
+
+Los códigos de Huffman no solo son compactos, sino que también consiguen la longitud media mínima posible para ese alfabeto, donde:
+$$
+H_{r}(S) \leq L \leq H_{r}(S)+1 
+$$
+Y se cumple que
+$$
+1 \geq \eta \geq \frac{H_{r}(S)}{H_{r}(S)+1}
+$$
+**Observación:** A medida que extendemos la fuente, conseguimos mejor rendimiento.
+
+![[Pasted image 20260327082547.png#center]]
+#### Código de Shannon-Fano
+Es un método de codificación estadística similar al de Huffman, en realidad es el primer método de codificación estadística desarrollado.
+
+El procedimiento es el siguiente:
+1. Se ordenan los símbolos de la fuente en probabilidades decrecientes.
+2. Se divide en 2 grupos de probabilidades similares, y se asigna 0 o 1 a cada uno de esos grupos como primer símbolo.
+3. Si los grupos tienen más de un símbolo, se repite el procedimiento.
+
+```horizontal
+
+![[Pasted image 20260327094248.png]]
+---
+
+![[Pasted image 20260327094018.png#center]]
+```
+#### Códigos aritméticos
+Este es otro método que se basa en la estadística de la fuente. Se codifica la secuencia de símbolos de entrada en un valor numérico dentro del intervalo $[0.0,1.0)$.
+
+![[Pasted image 20260327101613.png#center]]
+
+La secuencia ABCAA se puede codificar con un valor numérico en el intervalo $[0.3475, 0.3515625)$ -> $[0.010110, 0.0101101 )$
+Como los números son siempre menor a 1,puedo despreciar la información de la coma. Además, me conviene elegir el valor con menos bits. Asigno el código: $010110$
+
+Para asignar el valor en el intervalo $[\alpha, \beta)$ obtenemos $t$ tal que $2^{ -t } \leq \beta-\alpha\leq 2^{-t+1}$. Luego, para obtener $x$, se debe cumplir que: $\alpha \leq \frac{x}{2^{t}}<\beta$
+
+Si existen dos valores de $x$ en el intervalo, se toma el valor par, el código a utilizar será $r= \frac{x}{2^{t}}$
+
+**Decodificación:**
+![[Pasted image 20260327110207.png#center]]
+#### Códigos de ventana y diccionario
+La distinción de este código es agregar códigos a un diccionario a medida que aparecen nuevas cadenas en el texto sin comprimir.
+
+**Algoritmo:**
+1. Se definen 2 variables: Un carácter C, y un string P.
+2. Al iniciar, el diccionario contiene todos los caracteres unitarios, y P está vacío.
+3. Asigno el siguiente caracter del mensaje a codificar -> C.
+4. Si el string P+C está presente en el diccionario, se hace P=P+C
+5. Si el string P+C no está presente en el diccionario:
+	- Doy como salida del algoritmo el código P.
+	- Agrego el siguiente código para el elemento P+C, y hago P=C
+6. Si hay más caracteres para codificar, vuelvo al paso 3.
+7. Si no hay más caracteres, emito el código para P y finalizo.
+```horizontal
+![[Pasted image 20260327111117.png]]
+---
+![[Pasted image 20260327111132.png]]
+```
+**Algoritmo de decodificación:**
+1. Definimos en adición a P y C el código previo CP y el código actual CA.
+2. Al iniciar, el diccionario contiene todos los caracteres unitarios, CA es el primer código y se emite el string correspondiente al código CA (un solo caracter)
+3. Se hace CP = CA y se toma el nuevo caracter del mensaje codificado como CA
+4. Si el código CA está presente en el diccionario ( Es lo normal ):
+	- Se emite la palabra correspondiente a CA como mensaje decodificado
+	- Se hace P: la palabra decodificada de CP, C: primer carácter de CA y se agrega P+C al diccionario. 
+	- Si hay más palabras para decodificar se repite desde el paso 3.
+5. Si el código CA no está en el diccionario (Condición anómala)
+	- P: palabra decodificada de CP, C : primer carácter de CP.
+	- Se emite P +C como código de salida, se agrega al diccionario y pasa a ser CA.
+	- Si hay más palabras para decodificar se repite desde el paso 3.
+
+![[Pasted image 20260327111634.png#center]]
+#### Códigos RLE (Run Length Encoding)
+Codifica una secuencia de caracteres iguales por su la cantidad de repeticiones y el valor del carácter repetido.
+
+Supongamos la secuencia a codificar ABCCCCCCDDDDDEABBBBC. Podría reemplazarse por AB6C5DEA4BC. De este modo, la secuencia de 20 caracteres se reemplaza por una de 14. 
+
+En este esquema, sólo es conveniente una compresión ante repeticiones de 4 o más caracteres, si hay que codificar el carácter de control, se repite esto es una expansión. Es sencillo de implementar, requiere poca potencia de cálculo. Es particularmente útil en dibujos (Planos) e imágenes con grandes plenos. Se utiliza en los formatos TIFF , PCX y BMP.
+#### BWT
+Creada por Michael Burrows y David Wheeler. Transforma un string en otro y es reversible.
+
+-> Toma un string de largo N.
+-> Obtiene rotandolo en forma cíclica N strings.
+-> Los ordena alfabéticamente.
+-> Obtiene la última columna y el índice de la fila que contiene el string original.
+
+```horizontal
+![[Pasted image 20260327115749.png]]
+---
+![[Pasted image 20260327115804.png]]
+```
+#### MTF
+Para aprovechar las repeticiones de caracteres se utiliza en lugar de RLE un método utilizado el "Move To Front" o MTF. En este, se parte de los carcateres ordenados (0 a 255). Para cada caracter se envía su posición en la lista, y luego se pasa al primer lugar de la lista desplazando al resto en una posición.
+
+![[Pasted image 20260327120114.png#center]]
+
+Las secuencias de caracteres repetidos se cnvierten en la posición de un caracter y luego secuencias de '0'. Se obtienen como resultado un gran número de valores pequeños, y pocos grandes. Una codificación estadística (Huffman) resulta eficiente y este el tercer paso utilizado.
+### Compresión con pérdidas
+Existen métodos de compresión con pérdida, en este caso el límite de Shannon no es aplicable, es decir que puede codificarse con un tamaño menor a la entropía.
+
+Realmente el límite de Shannon sigue siendo aplicable, pero en el proceso de compresión se pierde parte de la información del mensaje por lo tanto la entropia del mensaje codificado es menor que la del original.
+
+Se puede utilizar si el receptor considera aceptable la pérdida, como en imágenes.
+#### Compresión JPEG
+Las componentes de color se procesan en módulos de 8x8 pixels. Al aplicar la transformada discreta coseno se obtienen 64 coeficientes que
+representan la composición “Espectral” de la imagen. Se usa DCT en lugar de DFT por su buen comportamiento en los límites al eliminar componentes de alta frecuencia.
+
+En general los componentes de alta frecuencia son chicos. Se ponderan los coeficientes para disminuir la importancia de los coeficientes de alta frecuencia. Esta cuantificación y el redondeo de coeficientes es responsable de la perdida de información.
+
+El resultado es un pequeño grupo de coeficientes no nulos que se ordenan de 1 a 64 y se codifican mediante una combinacion de RLE y Huffman.
+#### Compresión MP3
+Este modelo de compresión divide en bandas mediante DCT. Aplica un modelo psicoacústico a fin de codificar con menor precisión aquellos componentes que se ven enmascarados. 
+
+-> Frente a 2 sonidos de frecuencias similares solo se
+percibe la de mayor volumen.
+-> El efecto estéreo se pierde en bajas frecuencias, se puede almacenar en mono.
+->Se evalúa el monto de ruido admisible.
+-> Se codifica por Huffman.
+
+![[Pasted image 20260327114754.png#center]]
